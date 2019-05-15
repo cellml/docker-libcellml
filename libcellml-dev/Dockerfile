@@ -1,4 +1,4 @@
-FROM libcellml-base:latest
+FROM hsorby/libcellml-base:latest
 
 ADD VERSION .
 
