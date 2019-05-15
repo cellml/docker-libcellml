@@ -30,7 +30,6 @@ Hopefully it goes without saying that you need to replace `<your-local-directory
  
 From the command at the top of this section you should get the following output (not verbatim as the codebase may have changed since this output was recorded)::
 
-  Using local repository.
   -- The CXX compiler identification is GNU 7.4.0
   -- Check for working CXX compiler: /usr/bin/c++
   -- Check for working CXX compiler: /usr/bin/c++ -- works
