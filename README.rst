@@ -4,16 +4,31 @@ Docker files for libCellML
 
 This repository contains Dockerfiles for creating libCellML build environments.
 
+Setup
+=====
+
+To make use of the Docker images for libCellML you will need to download and install `Docker <https://hub.docker.com>`_.  Follow the Docker documentation for installing Docker on your operating system.
+
+Once Docker is installed fetch the libCellML Docker image with the following command::
+
+  docker fetch hsorby/libcellml-dev:0.1.1
+
 Running
 =======
 
 ::
 
- docker run libcellml-dev https://github.com/cellml/libcellml develop
+ docker run hsorby/libcellml-dev https://github.com/cellml/libcellml develop
 
 This will clone, build, and run the unit tests, code coverage and memory checking targets.
 
-From the command above you should get the following output::
+You can also build and run the tests from a local directory on the Docker daemon host computer.  This can be achieved with the following command::
+
+  docker run --mount type=bind,src=<your-local-directory>,dst=/random/place hsorby/libcellml-dev /random/place
+
+Hopefully it goes without saying that you need to replace `<your-local-directory>` with the actual directory where the libCellML code you wish to build and run exists.
+ 
+From the command at the top of this section you should get the following output (not verbatim as the codebase may have changed since this output was recorded)::
 
   Using local repository.
   -- The CXX compiler identification is GNU 7.4.0
