@@ -11,7 +11,7 @@ To make use of the Docker images for libCellML you will need to download and ins
 
 Once Docker is installed fetch the libCellML Docker image with the following command::
 
-  docker fetch hsorby/libcellml-dev:0.1.1
+  docker pull hsorby/libcellml-dev:0.1.1
 
 Running
 =======
