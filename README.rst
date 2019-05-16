@@ -24,7 +24,7 @@ This will clone, build, and run the unit tests, code coverage and memory checkin
 
 You can also build and run the tests from a local directory on the Docker daemon host computer.  This can be achieved with the following command::
 
-  docker run --mount type=bind,src=<your-local-directory>,dst=/random/place hsorby/libcellml-dev /random/place
+  docker run --mount type=bind,src=<your-local-directory>,dst=/random/place,readonly hsorby/libcellml-dev /random/place
 
 Hopefully it goes without saying that you need to replace `<your-local-directory>` with the actual directory where the libCellML code you wish to build and run exists.
  

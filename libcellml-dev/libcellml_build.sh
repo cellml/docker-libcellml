@@ -20,15 +20,27 @@ fi
 if [ "$?" == "0" ]; then
   mkdir $BUILD_DIR
   cd $BUILD_DIR
-  if cmake $SRC_DIR; then
-    make -j
-    make test
-    make coverage
-    make memcheck
-    if [ "$?" == "0" ]; then
-      echo "The libCellML repository passed all tests."
+  if cmake -DPREFERRED_CLANG_FORMAT_NAMES=clang-format-8 $SRC_DIR; then
+    if make -j; then
+      if make test; then
+        if make coverage; then
+          if make memcheck; then
+            if make test_clang_format; then
+              echo "The libCellML repository passed all tests."
+            else
+              echo "libCellML clang-format test failed."
+            fi
+          else
+            echo "libCellML memory check test failed."
+          fi
+        else
+          echo "libCellML code coverage test failed."
+        fi
+      else
+        echo "libCellML failed to pass all unit tests."
+      fi
     else
-      echo "libCellML tests failed."
+      echo "libCellML failed to compile."
     fi
   else
     echo "Configuration of project using CMake failed."
