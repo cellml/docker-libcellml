@@ -1,4 +1,4 @@
-FROM hsorby/libcellml-base:latest
+FROM hsorby/libcellml-base:0.1.2
 
 ADD VERSION .
 
@@ -8,5 +8,5 @@ COPY ./libcellml_build.sh /
 
 ENTRYPOINT ["/libcellml_build.sh"]
 
-CMD []
+CMD ["--help"]
 

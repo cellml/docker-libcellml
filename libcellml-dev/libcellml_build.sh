@@ -1,5 +1,34 @@
 #!/bin/bash
 
+HELP=0
+POSITIONAL=()
+while [[ $# -gt 0 ]]; do
+  key="$1"
+
+  case $key in
+    -h|--help)
+    HELP=1
+    shift # past argument
+    ;;
+#    -s|--searchpath)
+#    SEARCHPATH="$2"
+#    shift # past argument
+#    shift # past value
+#    ;;
+    *)  # unknown option
+    POSITIONAL+=("$1") # save it in an array for later
+    shift # past argument
+    ;;
+  esac
+done
+set -- "${POSITIONAL[@]}" # restore positional parameters
+
+if [ "$HELP" == "1" ]; then
+  echo "Usage -- "
+  echo "    docker run hsorby/libcellml-dev REPO_URL [BRANCH]"
+  exit 0
+fi
+
 REPOSITORY=$1
 BRANCH=$2
 
