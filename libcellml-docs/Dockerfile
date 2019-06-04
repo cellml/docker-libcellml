@@ -22,9 +22,6 @@ ENV LANG C.UTF-8
 ENV LANGUAGE C.UTF-8
 ENV LC_ALL C.UTF-8
 
-# Expose sphinx-autobuild documentation server port.
-EXPOSE 8000
-
 WORKDIR /home/libcellml
 
 COPY ./libcellml_docs.sh /
