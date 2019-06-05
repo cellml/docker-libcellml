@@ -16,11 +16,11 @@ With Docker installed there are two Docker images that you can use:
 
 To fetch the developer image use the following command::
 
-  docker pull hsorby/libcellml-dev:0.1.1
+  docker pull hsorby/libcellml-dev:0.1.4
 
 To fetch the documentation image use the following command::
 
-  docker pull hsorby/libcellml-docs:0.1.0
+  docker pull hsorby/libcellml-docs:0.1.1
 
 Running developer image
 =======================

@@ -1,4 +1,4 @@
-FROM hsorby/libcellml-base:0.1.2
+FROM hsorby/libcellml-base:0.1.4
 
 ADD VERSION .
 
@@ -22,7 +22,9 @@ ENV LANG C.UTF-8
 ENV LANGUAGE C.UTF-8
 ENV LC_ALL C.UTF-8
 
-WORKDIR /home/libcellml
+RUN ln -s /usr/bin/python3 /usr/bin/python
+
+WORKDIR /users/code
 
 COPY ./libcellml_docs.sh /
 

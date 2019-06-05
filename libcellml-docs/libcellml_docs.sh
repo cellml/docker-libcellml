@@ -25,7 +25,7 @@ set -- "${POSITIONAL[@]}" # restore positional parameters
 
 if [ "$HELP" == "1" ]; then
   echo "Usage -- "
-  echo "    docker run hsorby/libcellml-d REPO_URL [BRANCH]"
+  echo "    docker run hsorby/libcellml-docs REPO_URL [BRANCH]"
   exit 0
 fi
 
@@ -38,6 +38,8 @@ SRC_DIR=libcellml
 if [ -f "$REPOSITORY/CMakeLists.txt" ]; then
   echo "Using local repository."
   SRC_DIR=$REPOSITORY
+elif [ "x$REPOSITORY" == "x/bin/bash" ]; then
+  exec /bin/bash
 elif [ "x$BRANCH" == "x" ]; then
   SRC_DIR=$(pwd)/libcellml
   git clone --single-branch $REPOSITORY $SRC_DIR
@@ -70,8 +72,6 @@ else
   # Run the server.
   echo "Run the server."
 fi
-
-# exec /bin/bash
 
 exec sphinx-autobuild --host 0.0.0.0 --port 8000 --ignore *.swp --ignore *.rst~ --ignore *.rst.swx -q -b html -c $BUILD_DIR/docs/_build -d $BUILD_DIR/docs/_doctrees $SRC_DIR/docs $BUILD_DIR/docs/html
 

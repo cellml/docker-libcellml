@@ -38,6 +38,8 @@ SRC_DIR=libcellml
 if [ -f "$REPOSITORY/CMakeLists.txt" ]; then
   echo "Using local repository."
   SRC_DIR=$REPOSITORY
+elif [ "x$REPOSITORY" == "x/bin/bash" ]; then
+  exec /bin/bash
 elif [ "x$BRANCH" == "x" ]; then
   SRC_DIR=$(pwd)/libcellml
   git clone --single-branch $REPOSITORY $SRC_DIR
