@@ -11,8 +11,8 @@ To make use of the Docker images for libCellML you will need to download and ins
 
 With Docker installed there are two Docker images that you can use:
 
- 1. libCellML developer image
- 2. libCellML documentation image
+1. libCellML developer image
+2. libCellML documentation image
 
 To fetch the developer image use the following command::
 
@@ -21,6 +21,11 @@ To fetch the developer image use the following command::
 To fetch the documentation image use the following command::
 
   docker pull hsorby/libcellml-docs:0.1.1
+
+You may also pull the `latest` version of the images with the following commands::
+
+  docker pull hsorby/libcellml-dev
+  docker pull hsorby/libcellml-docs
 
 Running developer image
 =======================
