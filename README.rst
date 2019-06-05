@@ -51,7 +51,7 @@ Running documentation image
 
  docker run -p 8118:8000 hsorby/libcellml-docs https://github.com/cellml/libcellml develop
 
-This will clone, and build the documentation for libCellML and make the documentation available at `localhost:8118 <localhost:8118>`_.
+This will clone, and build the documentation for libCellML and make the documentation available at `localhost:8118 <http://localhost:8118/>`_.
 
 You can also build and serve documentation from a local directory. The documentation will be automatically built and reflected in a webbrowser when any documentation related changes are saved.  This gives you a live rendering of the current state of the libCellML documentation.  This can be achieved with the following command::
 
