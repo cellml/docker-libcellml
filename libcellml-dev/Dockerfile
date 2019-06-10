@@ -19,7 +19,7 @@ RUN apt-add-repository  "deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic-8
 # Install the requirements for running clang based tests, unfortunately it seems we cannot pin the version of
 # clang-format as it is still getting updated.
 RUN apt-get -qq update && apt-get -qq -y install \
-    clang-format-8 \
+    clang-format-8 clang-tidy-8 \
 # Clean downloaded apt packages after intsll
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*

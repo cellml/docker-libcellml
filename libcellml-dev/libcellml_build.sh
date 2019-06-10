@@ -51,7 +51,7 @@ fi
 if [ "$?" == "0" ]; then
   mkdir $BUILD_DIR
   cd $BUILD_DIR
-  if cmake -DPREFERRED_CLANG_FORMAT_NAMES=clang-format-8 $SRC_DIR; then
+  if cmake -DPREFERRED_CLANG_FORMAT_NAMES=clang-format-8 -DPREFERRED_CLANG_TIDY_NAMES=clang-tidy-8 $SRC_DIR; then
     if make -j; then
       if make test; then
         if make coverage; then
