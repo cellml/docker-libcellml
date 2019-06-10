@@ -11,8 +11,8 @@ This file documents notable changes to this project.  This project adheres to `S
 Added
 -----
 
- - clang-tidy-8 to hsorby/libcellml-dev image.
- - command line argument '-s' or '--serial' to make the build serially.
- - command line argument '-b' or '--build-only' to only build the library and tests.
- - command line argument '-d' or '--debug' to Alaunch a bash shell at after the last command. Note the '-it' flags must be passed to 'docker run' for this to work.
+- clang-tidy-8 to hsorby/libcellml-dev image.
+- command line argument '-s' or '--serial' to make the build serially.
+- command line argument '-b' or '--build-only' to only build the library and tests.
+- command line argument '-d' or '--debug' to Alaunch a bash shell at after the last command. Note the '-it' flags must be passed to 'docker run' for this to work.
 
