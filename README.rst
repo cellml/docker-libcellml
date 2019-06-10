@@ -16,7 +16,7 @@ With Docker installed there are two Docker images that you can use:
 
 To fetch the developer image use the following command::
 
-  docker pull hsorby/libcellml-dev:0.1.4
+  docker pull hsorby/libcellml-dev:0.1.5
 
 To fetch the documentation image use the following command::
 
@@ -41,7 +41,24 @@ You can also build and run the tests from a local directory on the Docker daemon
   docker run --mount type=bind,src=<your-local-directory>,dst=/external/drive,readonly hsorby/libcellml-dev /external/drive
 
 Hopefully it goes without saying that you need to replace `<your-local-directory>` with the actual directory where the libCellML code you wish to build and test exists.
+
+The build can be controlled with the following arguments
+
+- '-s', '--serial' to build serially
+- '-b', '--build-only' to only build the libraries and tests
+- '-d', '--debug' to enter debug mode at the end of the build
+
+Note: The debug mode option must be used in conjunction with '-it' flags for the 'docker run' command.
+
+Some examples of using the command line options::
  
+  # Build serially
+  docker run hsorby/libcellml-dev https://github.com/cellml/libcellml develop -s
+  # Just build libraries and tests
+  docker run hsorby/libcellml-dev https://github.com/cellml/libcellml develop -b
+  # Enter a bash shell at the end of the build
+  docker run -it hsorby/libcellml-dev https://github.com/cellml/libcellml develop -d
+
 From the command at the top of this section you should get output similar to what is shown in `Appendix A`_
 
 Running documentation image
