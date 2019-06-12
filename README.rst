@@ -16,29 +16,29 @@ With Docker installed there are two Docker images that you can use:
 
 To fetch the developer image use the following command::
 
-  docker pull hsorby/libcellml-dev:0.1.5
+  docker pull libcellml/build:1.0.0
 
 To fetch the documentation image use the following command::
 
-  docker pull hsorby/libcellml-docs:0.1.1
+  docker pull libcellml/docs:1.0.0
 
 You may also pull the `latest` version of the images with the following commands::
 
-  docker pull hsorby/libcellml-dev
-  docker pull hsorby/libcellml-docs
+  docker pull libcellml/build
+  docker pull libcellml/docs
 
 Running developer image
 =======================
 
 ::
 
- docker run hsorby/libcellml-dev https://github.com/cellml/libcellml develop
+ docker run libcellml/build https://github.com/cellml/libcellml develop
 
 This will clone, build, and run the unit tests, code coverage, clang-format, and memory checking targets.
 
 You can also build and run the tests from a local directory on the Docker daemon host computer.  This can be achieved with the following command::
 
-  docker run --mount type=bind,src=<your-local-directory>,dst=/external/drive,readonly hsorby/libcellml-dev /external/drive
+  docker run --mount type=bind,src=<your-local-directory>,dst=/external/drive,readonly libcellml/build /external/drive
 
 Hopefully it goes without saying that you need to replace `<your-local-directory>` with the actual directory where the libCellML code you wish to build and test exists.
 
@@ -53,11 +53,11 @@ Note: The debug mode option must be used in conjunction with '-it' flags for the
 Some examples of using the command line options::
  
   # Build serially
-  docker run hsorby/libcellml-dev https://github.com/cellml/libcellml develop -s
+  docker run libcellml/build https://github.com/cellml/libcellml develop -s
   # Just build libraries and tests
-  docker run hsorby/libcellml-dev https://github.com/cellml/libcellml develop -b
+  docker run libcellml/build https://github.com/cellml/libcellml develop -b
   # Enter a bash shell at the end of the build
-  docker run -it hsorby/libcellml-dev https://github.com/cellml/libcellml develop -d
+  docker run -it libcellml/build https://github.com/cellml/libcellml develop -d
 
 From the command at the top of this section you should get output similar to what is shown in `Appendix A`_
 
@@ -66,13 +66,13 @@ Running documentation image
 
 ::
 
- docker run -p 8118:8000 hsorby/libcellml-docs https://github.com/cellml/libcellml develop
+ docker run -p 8118:8000 libcellml/docs https://github.com/cellml/libcellml develop
 
 This will clone, and build the documentation for libCellML and make the documentation available at `localhost:8118 <http://localhost:8118/>`_.
 
 You can also build and serve documentation from a local directory. The documentation will be automatically built and reflected in a webbrowser when any documentation related changes are saved.  This gives you a live rendering of the current state of the libCellML documentation.  This can be achieved with the following command::
 
- docker run --mount type=bind,src=<your-local-directory>,dst=/external/drive,readonly -p 8118:8000 hsorby/libcellml-docs /external/drive
+ docker run --mount type=bind,src=<your-local-directory>,dst=/external/drive,readonly -p 8118:8000 libcellml/docs /external/drive
 
 Hopefully it goes without saying that you need to replace `<your-local-directory>` with the actual directory where the libCellML code you wish to render the documentation for exists.
 

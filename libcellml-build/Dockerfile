@@ -1,4 +1,4 @@
-FROM hsorby/libcellml-base:0.1.4
+FROM libcellml/base:1.0.0
 
 ADD VERSION .
 
